@@ -134,10 +134,6 @@ def puzzletips():
 def video_tutorial_page():
     return render_template('videotutorial.html')
 
-@app.route('/practice')
-def practice_page():
-    return render_template('practice.html', practice=practice)
-
 @app.route('/quiz/<quiz_id>')
 def quiz(quiz_id):
     quiz_question = quiz.get(quiz_id)
