@@ -41,3 +41,9 @@
   background-color: #45a049; /* Slightly darker green background on hover */
   transform: scale(1.05); /* Slightly increase the scale of the button */
 }
+
+#step-content img {
+  width: 500px;
+  height: auto;
+  max-height: 400px;
+}
