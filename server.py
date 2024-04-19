@@ -17,7 +17,7 @@ steps = {
         "step_id": "2",
         "title": "Step #2: Choosing Workspace", 
         "media":"", 
-        "text": "Simulator Setup: If you’re using digital workspace e.g. jigsawpuzzles.io, choose a background color that contrasts well with your puzzle pieces for better visibility. I chose gray background, because my puzzle image as seen on the right is colorful and doesn’t include darker colors. Physical Space Setup: Ensure your workspace, such as a dining table, is large enough for the puzzle size. We recommend using a puzzle mat for its portability and to safeguard your progress.",
+        "text": "Simulator Setup: If you are using digital workspace e.g. jigsawpuzzles.io, choose a background color that contrasts well with your puzzle pieces for better visibility. I chose gray background, because my puzzle image as seen on the right is colorful and does not include darker colors. Physical Space Setup: Ensure your workspace, such as a dining table, is large enough for the puzzle size. We recommend using a puzzle mat for its portability and to safeguard your progress.",
         "next": "3",
     }, 
     "3": {
@@ -57,20 +57,20 @@ steps = {
         "title": "Step #7: Completing the Puzzle", 
         "media":"", 
         "text": "Focus on completing small sections or specific images within the puzzle first, using your sorted groups. If you encounter difficulty with a particular area, switch to another section. This can prevent frustration and keep the process enjoyable. Some puzzles allow for sorting by shape—this can be particularly helpful for areas with uniform color. Remember: patience is key. Take breaks if needed, and don’t rush. Puzzling is a marathon, not a sprint.",
-        "next": "8",
+        "next": "",
     } 
 }
 
 video_tutorial = {
         "title": "Video Tutorial for All Steps", 
         "media":"", 
-        "next": "practice",
+        "next": "",
 }
 
 practice = {
         "title": "Practice!", 
         "media":"https://im-a-puzzle.com/share/55794569b3b9be3?embed=true&showAds=false&showNav=false&showSolve=false", 
-        "next": "quiz",
+        "next": "quz",
 }
 
 quiz = {
@@ -78,33 +78,39 @@ quiz = {
         "quiz_id": "1",
         "question": "Q1. What did you do first upon starting the puzzle?",
         "media": "",
-        "choice_1": "A) Sorted pieces by color",
-        "choice_2": "B) Looked for corner pieces",
-        "choice_3": "C) Assembled edge pieces",
+        "choices": [
+            {"id": "choice_1", "text": "A) Sorted pieces by color"},
+            {"id": "choice_2", "text": "B) Looked for corner pieces"},
+            {"id": "choice_3", "text": "C) Assembled edge pieces"}
+        ],
         "answer": "choice_2",
         "next": "2"
     },
-        "2": {
+
+    "2": {
         "quiz_id": "2",
         "question": "Q2. Which color group did not exist in the puzzle?",
         "media": "",
-        "choice_1": "A) Red",
-        "choice_2": "B) Green",
-        "choice_3": "C) Brown",
-        "choice_4": "D) Blue",
+        "choices": [
+            {"id": "choice_1", "text": "A) Red"},
+            {"id": "choice_2", "text": "B) Green"},
+            {"id": "choice_3", "text": "C) Brown"},
+            {"id": "choice_4", "text": "D) Blue"}
+        ],
         "answer": "choice_1",
         "next": "3"
-
     },
-    
+
     "3": {
         "quiz_id": "3",
         "question": "Q3. How many edges does a corner piece have?",
         "media": "",
-        "choice_1": "A) None",
-        "choice_2": "B) 1",
-        "choice_3": "C) 2",
-        "choice_4": "D) 3",
+        "choices": [
+            {"id": "choice_1", "text": "A) None"},
+            {"id": "choice_2", "text": "B) 1"},
+            {"id": "choice_3", "text": "C) 2"},
+            {"id": "choice_4", "text": "D) 3"}
+        ],
         "answer": "choice_3",
         "next": "4"
     },
@@ -113,9 +119,11 @@ quiz = {
         "quiz_id": "4",
         "question": "Q4. Where do the pieces shown in the image belong? (in order)",
         "media": "",
-        "choice_1": "A) The left edge, the bottom edge",
-        "choice_2": "B) The bottom right corner, the top edge",
-        "choice_3": "C) The top left corner, the bottom edge",
+        "choices": [
+            {"id": "choice_1", "text": "A) The left edge, the bottom edge"},
+            {"id": "choice_2", "text": "B) The bottom right corner, the top edge"},
+            {"id": "choice_3", "text": "C) The top left corner, the bottom edge"}
+        ],
         "answer": "choice_3",
         "next": ""
     }
@@ -126,17 +134,22 @@ quiz = {
 def home():
     return render_template('home.html')
 
-@app.route('/puzzletips')
-def puzzletips():    
-    return render_template('puzzletips.html')
+@app.route('/puzzletips/<step_id>')
+def puzzletips(step_id):
+    step = steps.get(step_id)
+    if not step:
+        return "Step not found", 404
+    return render_template('puzzletips.html', step=step)
 
 @app.route('/videotutorial')
 def video_tutorial_page():
     return render_template('videotutorial.html')
 
 @app.route('/quiz/<quiz_id>')
-def quiz(quiz_id):
+def quiz_page(quiz_id):
     quiz_question = quiz.get(quiz_id)
+    if not quiz_question:
+        return "Quiz not found", 404
     return render_template('quiz.html', quiz=quiz_question)
 
 if __name__ == '__main__':

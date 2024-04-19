@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Puzzle Tips{% endblock %}
+
+{% block content %}
+  <div id="step-content">
+    <h2>{{ step.title }}</h2>
+    <p>{{ step.text }}</p>
+    {% if step.media %}
+      <img src="{{ step.media }}" alt="Media related to step">
+    {% endif %}
+    {% if step.next %}
+      <button onclick="location.href='/puzzletips/{{ step.next }}'" class="continue-button">Continue</button>
+    {% else %}
+      <button onclick="location.href='/'" class="continue-button">Finish</button>
+    {% endif %}
+  </div>
+{% endblock %}
