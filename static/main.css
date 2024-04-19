@@ -46,4 +46,20 @@
   width: 500px;
   height: auto;
   max-height: 400px;
+
+  
+.continue-button, .submit-button {
+  background-color: #4caf50; /* Green background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.continue-button:hover, .submit-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
 }
