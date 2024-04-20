@@ -140,11 +140,9 @@ def puzzletips(step_id):
     step = steps.get(step_id)
     if not step:
         return "Step not found", 404
+    # Store the timestamp when the user accesses a step
+    session[f'entry_time_step_{step_id}'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     return render_template('puzzletips.html', step=step)
-
-# @app.route('/videotutorial')
-# def video_tutorial_page():
-#     return render_template('videotutorial.html')
 
 @app.route('/practicepuzzle')
 def practicepuzzle():
