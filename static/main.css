@@ -46,9 +46,10 @@
   width: 500px;
   height: auto;
   max-height: 400px;
+}
 
-  
-.continue-button, .submit-button {
+.continue-button,
+.submit-button {
   background-color: #4caf50; /* Green background */
   color: white;
   padding: 10px 20px;
@@ -59,7 +60,20 @@
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.continue-button:hover, .submit-button:hover {
+.continue-button:hover,
+.submit-button:hover {
   background-color: #45a049;
   transform: scale(1.05);
+}
+
+.flashes {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+.correct {
+  color: green;
+}
+.incorrect {
+  color: red;
 }

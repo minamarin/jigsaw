@@ -6,11 +6,16 @@
     action="{{ url_for('submit_quiz', quiz_id=quiz.quiz_id) }}"
     method="post"
   >
-  {% for choice in quiz.choices %}
-  <input type="radio" id="{{ choice.id }}" name="answer" value="{{ choice.id }}" />
-  <label for="{{ choice.id }}">{{ choice.text }}</label><br />
-  {% endfor %}
-  
+    {% for choice in quiz.choices %}
+    <input
+      type="radio"
+      id="{{ choice.id }}"
+      name="answer"
+      value="{{ choice.id }}"
+    />
+    <label for="{{ choice.id }}">{{ choice.text }}</label><br />
+    {% endfor %}
+
     <button type="submit" class="submit-button">Submit</button>
   </form>
 </div>

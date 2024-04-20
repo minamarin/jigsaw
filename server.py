@@ -1,9 +1,10 @@
 
-from flask import Flask, render_template, Response, request, jsonify
-from flask import Flask, render_template, request, redirect, url_for
-
+from flask import Flask, render_template, request, redirect, url_for, session
+from datetime import datetime
 
 app = Flask(__name__)
+app.secret_key = '1234'  # Change this to a random secret key
+
 
 #data
 
@@ -61,12 +62,6 @@ steps = {
         "text": "Focus on completing small sections or specific images within the puzzle first, using your sorted groups. If you encounter difficulty with a particular area, switch to another section. This can prevent frustration and keep the process enjoyable. Some puzzles allow for sorting by shape—this can be particularly helpful for areas with uniform color. Remember: patience is key. Take breaks if needed, and don’t rush. Puzzling is a marathon, not a sprint.",
         "next": "",
     } 
-}
-
-video_tutorial = {
-        "title": "Video Tutorial for All Steps", 
-        "media":"", 
-        "next": "",
 }
 
 practice = {
@@ -147,9 +142,14 @@ def puzzletips(step_id):
         return "Step not found", 404
     return render_template('puzzletips.html', step=step)
 
-@app.route('/videotutorial')
-def video_tutorial_page():
-    return render_template('videotutorial.html')
+# @app.route('/videotutorial')
+# def video_tutorial_page():
+#     return render_template('videotutorial.html')
+
+@app.route('/practicepuzzle')
+def practicepuzzle():
+    session['entry_time_practice'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return render_template('practice.html')
 
 @app.route('/quiz/<quiz_id>')
 def quiz_page(quiz_id):
@@ -158,27 +158,38 @@ def quiz_page(quiz_id):
         return "Quiz not found", 404
     return render_template('quiz.html', quiz=quiz_question)
 
+
 @app.route('/submit_quiz/<quiz_id>', methods=['POST'])
 def submit_quiz(quiz_id):
+    print("Quiz ID:", quiz_id)  # Debugging
     quiz_question = quiz.get(quiz_id)
     if not quiz_question:
         return "Quiz not found", 404
 
     selected_choice = request.form.get('answer')
-    if not selected_choice:
-        return "No answer selected", 400
+    print("Selected Choice:", selected_choice)  # Debugging
+    print("Correct Answer:", quiz_question['answer'])  # Debugging
+
+    if 'correct_count' not in session:
+        session['correct_count'] = 0
 
     if selected_choice == quiz_question['answer']:
-        # Redirect to next quiz if answer is correct
-        next_quiz_id = quiz_question['next']
-        if next_quiz_id:
-            return redirect(url_for('quiz_page', quiz_id=next_quiz_id))
-        else:
-            # No more quizzes, redirect to a completion page or something similar
-            return redirect(url_for('quiz_completion'))
+        session['correct_count'] += 1
+
+    next_quiz_id = quiz_question['next']
+    print("Next Quiz ID:", next_quiz_id)  # Debugging
+
+    if next_quiz_id:
+        return redirect(url_for('quiz_page', quiz_id=next_quiz_id))
     else:
-        # Reload the current quiz if answer is incorrect
-        return redirect(url_for('quiz_page', quiz_id=quiz_id))
+        return redirect(url_for('quiz_completion'))
+
+
+@app.route('/quiz_completion')
+def quiz_completion():
+    correct_count = session.pop('correct_count', 0)  # Retrieve and clear the count
+    return render_template('quiz_completion.html', correct_count=correct_count)
+
 
 
 if __name__ == '__main__':
