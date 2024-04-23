@@ -1,5 +1,13 @@
-let totalTime = 240; // Total time in seconds (4 minutes)
-const timerElement = document.getElementById('timer');
+document.addEventListener('DOMContentLoaded', function() {
+  let totalTime = 240; // Total time in seconds (4 minutes)
+  const timerElement = document.getElementById('timer');
+
+  if (timerElement) { // Check if the timer element exists
+    startTimer(totalTime, timerElement);
+  } else {
+    console.error('The timer element was not found!');
+  }
+});
 
 function startTimer(duration, display) {
   let timer = duration,
@@ -17,10 +25,7 @@ function startTimer(duration, display) {
     if (--timer < 0) {
       clearInterval(interval);
       display.textContent = 'Time is up!';
+      // Add any additional actions here when the timer ends
     }
   }, 1000);
 }
-
-window.onload = function () {
-  startTimer(totalTime, timerElement);
-};

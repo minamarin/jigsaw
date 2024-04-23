@@ -1,26 +1,21 @@
-{% extends 'base.html' %} {% block title %}Quiz{% endblock %} {% block content
-%}
+{% extends 'base.html' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block content %}
 <div id="quiz-question">
   <h2>{{ quiz.question }}</h2>
-  <form
-    action="{{ url_for('submit_quiz', quiz_id=quiz.quiz_id) }}"
-    method="post"
-  >
+  {% if quiz.media %}
+  <div class="media-container">
+    <img src="{{ quiz.media }}" alt="Quiz Media" />
+  </div>
+  {% endif %}
+  <form action="{{ url_for('submit_quiz', quiz_id=quiz.quiz_id) }}" method="post">
     {% for choice in quiz.choices %}
-    <input
-      type="radio"
-      id="{{ choice.id }}"
-      name="answer"
-      value="{{ choice.id }}"
-    />
-    <label for="{{ choice.id }}">{{ choice.text }}</label><br />
+    <input type="radio" id="{{ choice.id }}" name="answer" value="{{ choice.id }}">
+    <label for="{{ choice.id }}">{{ choice.text }}</label><br>
     {% endfor %}
-
     <button type="submit" class="submit-button">Submit</button>
   </form>
 </div>
-<script>
-  const correctAnswerId = '{{ quiz.answer }}';
-</script>
-<script src="/static/home.js"></script>
 {% endblock %}

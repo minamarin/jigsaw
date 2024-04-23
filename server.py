@@ -115,7 +115,7 @@ quiz = {
     "4": {
         "quiz_id": "4",
         "question": "Q4. Where do the pieces shown in the image belong? (in order)",
-        "media": "",
+        "media": "https://i.ibb.co/f9xKYDw/Screenshot-2024-04-19-at-13-24-00.png",
         "choices": [
             {"id": "choice_1", "text": "A) The left edge, the bottom edge"},
             {"id": "choice_2", "text": "B) The bottom right corner, the top edge"},

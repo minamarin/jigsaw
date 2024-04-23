@@ -1,0 +1,134 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5dc; /* Beige background */
+  font-family: 'Roboto', sans-serif; /* Roboto font */
+  color: #333;
+  height: 100%;
+  font-size: larger;
+}
+
+header {
+  background-color: #6a0dad; /* Purple background */
+  padding: 8px 0;
+}
+
+.header-icon img {
+  height: 30px; /* Size for puzzle icons in the header */
+  width: auto;
+  margin: 0 10px;
+}
+
+header nav ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Center the nav horizontally */
+  align-items: center; /* Align the nav vertically */
+}
+
+header nav ul li {
+  display: inline-block;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  display: block;
+}
+
+main {
+  text-align: center;
+  padding: 20px;
+  flex: 1; /* Flex grow to take available space */
+}
+
+.header-content, .content, #practice-content, #quiz-question, #quiz-completion {
+  max-width: 900px; /* Max width for content */
+  margin: auto; /* Center the content */
+  padding: 30px;
+  background-color: #ffffff; /* White background for content */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Shadow for content */
+  border-radius: 8px; /* Rounded corners for content */
+}
+
+.content h1, #practice-content h1, #quiz-question h2, #quiz-completion h2 {
+  color: #6a0dad; /* Purple text for headings */
+  margin: 30px 0;
+}
+
+.content h1 img, .header-content h1 img {
+  height: 50px; /* Adjust the size as needed */
+}
+
+.start-btn, .continue-button, .submit-button {
+  background-color: #6a0dad; /* Purple background for buttons */
+  color: #ffffff; /* White text */
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.start-btn:hover, .continue-button:hover, .submit-button:hover {
+  background-color: #5c0d8d; /* Darker purple on hover */
+}
+
+footer {
+  background-color: #6a0dad; /* Purple footer */
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: 20px;
+}
+
+iframe {
+  border-radius: 8px; /* Rounded corners for iframe */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header nav ul {
+    flex-direction: column; /* Stack the nav items for small screens */
+  }
+
+  nav a {
+    padding: 10px; /* Adjust padding for smaller screens */
+    margin: 30px 0; /* Space out the nav items */
+  }
+
+  .content h1, #practice-content h1, #quiz-question h2, #quiz-completion h2 {
+    font-size: 1.5em; /* Smaller headings on smaller screens */
+  }
+}
+
+/* Media container styles */
+.media-container {
+  max-width: 600px; /* Maximum width of the media container */
+  margin: 20px auto; /* Center the container */
+  background: #eee; /* Light grey background */
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 8px; /* Rounded corners for the container */
+  padding: 10px; /* Padding around the content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden; /* Ensure the content does not overflow */
+}
+
+/* Styles for images within the media container */
+.media-container img, .media-container iframe {
+  width: 100%; /* Make media stretch to cover the container width */
+  height: auto; /* Keep the aspect ratio of media */
+  max-height: 300px; /* Maximum height for media */
+  display: block; /* Remove extra space below images */
+  margin: auto; /* Center media in case they are not full width */
+}

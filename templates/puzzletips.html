@@ -4,7 +4,9 @@ content %}
   <h2>{{ step.title }}</h2>
   <p>{{ step.text }}</p>
   {% if step.media %}
-  <img src="{{ step.media }}" alt="{{ step.title }}" />
+  <div class="media-container">
+    <img src="{{ step.media }}" alt="{{ step.title }}" />
+  </div>
   {% endif %} {% if step.next %}
   <button
     onclick="location.href='/puzzletips/{{ step.next }}'"

@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/main.css" />
-    <title>Jigsaw Tips and Tricks</title>
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="/">HOME</a>
-      <a href="/puzzletips/1">PUZZLE TIPS</a>
-      <a href="/practicepuzzle">PRACTICE</a>
-      <a href="/quiz/1">QUIZ</a>
-    </div>
-    <div class="content">{% block content %}{% endblock %}</div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Jigsaw Puzzle Guide{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('puzzletips', step_id='1') }}">Puzzle Tips</a></li>
+                <li><a href="{{ url_for('practicepuzzle') }}">Practice</a></li>
+                <li><a href="{{ url_for('quiz_page', quiz_id='1') }}">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        <!-- Content goes here -->
+        {% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
 </html>
