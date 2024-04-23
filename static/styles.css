@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   background-color: #f5f5dc; /* Beige background */
@@ -11,6 +12,14 @@ body, html {
 header {
   background-color: #6a0dad; /* Purple background */
   padding: 8px 0;
+}
+
+h1 {
+  font-family: 'Mountains of Christmas', serif;
+}
+
+h2 {
+  font-family: 'Mountains of Christmas', serif;
 }
 
 .header-icon img {
@@ -36,6 +45,9 @@ nav a {
   text-decoration: none;
   color: #ffffff;
   font-weight: bold;
+  font-family: 'Jersey 10', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 1.2em;
   padding: 10px 20px;
   display: block;
@@ -47,25 +59,35 @@ main {
   flex: 1; /* Flex grow to take available space */
 }
 
-.header-content, .content, #practice-content, #quiz-question, #quiz-completion {
+.header-content,
+.content,
+#practice-content,
+#quiz-question,
+#quiz-completion {
   max-width: 900px; /* Max width for content */
   margin: auto; /* Center the content */
   padding: 30px;
   background-color: #ffffff; /* White background for content */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Shadow for content */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for content */
   border-radius: 8px; /* Rounded corners for content */
 }
 
-.content h1, #practice-content h1, #quiz-question h2, #quiz-completion h2 {
+.content h1,
+#practice-content h1,
+#quiz-question h2,
+#quiz-completion h2 {
   color: #6a0dad; /* Purple text for headings */
   margin: 30px 0;
 }
 
-.content h1 img, .header-content h1 img {
+.content h1 img,
+.header-content h1 img {
   height: 50px; /* Adjust the size as needed */
 }
 
-.start-btn, .continue-button, .submit-button {
+.start-btn,
+.continue-button,
+.submit-button {
   background-color: #6a0dad; /* Purple background for buttons */
   color: #ffffff; /* White text */
   padding: 10px 20px;
@@ -79,7 +101,9 @@ main {
   font-size: 1em;
 }
 
-.start-btn:hover, .continue-button:hover, .submit-button:hover {
+.start-btn:hover,
+.continue-button:hover,
+.submit-button:hover {
   background-color: #5c0d8d; /* Darker purple on hover */
 }
 
@@ -107,7 +131,10 @@ iframe {
     margin: 30px 0; /* Space out the nav items */
   }
 
-  .content h1, #practice-content h1, #quiz-question h2, #quiz-completion h2 {
+  .content h1,
+  #practice-content h1,
+  #quiz-question h2,
+  #quiz-completion h2 {
     font-size: 1.5em; /* Smaller headings on smaller screens */
   }
 }
@@ -125,7 +152,8 @@ iframe {
 }
 
 /* Styles for images within the media container */
-.media-container img, .media-container iframe {
+.media-container img,
+.media-container iframe {
   width: 100%; /* Make media stretch to cover the container width */
   height: auto; /* Keep the aspect ratio of media */
   max-height: 300px; /* Maximum height for media */

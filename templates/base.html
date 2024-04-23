@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Jigsaw Puzzle Guide{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
     <script src="{{ url_for('static', filename='main.js') }}"></script>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('puzzletips', step_id='1') }}">Puzzle Tips</a></li>
-                <li><a href="{{ url_for('practicepuzzle') }}">Practice</a></li>
-                <li><a href="{{ url_for('quiz_page', quiz_id='1') }}">Quiz</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li>
+            <a href="{{ url_for('puzzletips', step_id='1') }}">Puzzle Tips</a>
+          </li>
+          <li><a href="{{ url_for('practicepuzzle') }}">Practice</a></li>
+          <li><a href="{{ url_for('quiz_page', quiz_id='1') }}">Quiz</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        {% block content %}
-        <!-- Content goes here -->
-        {% endblock %}
+      {% block content %}
+      <!-- Content goes here -->
+      {% endblock %}
     </main>
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-</body>
+  </body>
 </html>
