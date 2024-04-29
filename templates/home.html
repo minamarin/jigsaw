@@ -1,16 +1,26 @@
-{% extends 'base.html' %}
-
-{% block title %}Home - Jigsaw Puzzle Guide{% endblock %}
-
-{% block content %}
-    <div class="content">
-        <h1>
-          <img src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png" alt="Puzzle Piece">
-          Jigsaw Puzzle Tips and Tricks!
-          <img src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png" alt="Puzzle Piece">
-        </h1>
-        <p>Always wanted to do a jigsaw puzzle but don’t know where to start?</p>
-        <p>This is your perfect opportunity to learn how to complete jigsaw puzzles in just 10 minutes. You’ll be shown the steps of doing a puzzle (with an example!). You’ll get to practice and test your knowledge at the end of the tutorial!</p>
-        <a href="{{ url_for('puzzletips', step_id='1') }}" class="start-btn">Let’s start!</a>
-    </div>
+{% extends 'base.html' %} {% block title %}Home - Jigsaw Puzzle Guide{% endblock
+%} {% block content %}
+<div class="content">
+  <h1>
+    <img
+      src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png"
+      alt="Puzzle Piece"
+    />
+    Jigsaw Puzzle Tips and Tricks!
+    <img
+      src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png"
+      alt="Puzzle Piece"
+    />
+  </h1>
+  <p>Always wanted to do a jigsaw puzzle but don’t know where to start?</p>
+  <p>
+    This is your perfect opportunity to
+    <b>learn how to complete jigsaw puzzles in just 10 minutes.</b> You’ll be
+    shown the steps of doing a puzzle (with an example!). You’ll get to practice
+    and test your knowledge at the end of the tutorial!
+  </p>
+  <a href="{{ url_for('puzzletips', step_id='1') }}" class="start-btn"
+    >Let’s start!</a
+  >
+</div>
 {% endblock %}

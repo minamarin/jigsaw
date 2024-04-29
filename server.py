@@ -13,14 +13,14 @@ steps = {
         "step_id": "1",
         "title": "Step #1: Choosing Difficulty", 
         "media":"https://i.ibb.co/d287rY6/step1.png", 
-        "text": "For those new to jigsaw puzzles, starting with a 250-500-piece puzzle is recommended. If you have some familiarity or are seeking a greater challenge, consider trying a 1000-piece puzzle.",
+        "text": "For those new to jigsaw puzzles, starting with a <strong> 250-500-piece puzzle </strong> is recommended. <br> If you have some familiarity or are seeking a greater challenge, consider trying a 1000-piece puzzle.",
         "next": "2"
     },
     "2": {
         "step_id": "2",
         "title": "Step #2: Choosing Workspace", 
         "media":"https://i.ibb.co/5TqBNPp/step2.png", 
-        "text": "Simulator Setup: If you are using digital workspace e.g. jigsawpuzzles.io, choose a background color that contrasts well with your puzzle pieces for better visibility. I chose gray background, because my puzzle image as seen on the right is colorful and does not include darker colors. Physical Space Setup: Ensure your workspace, such as a dining table, is large enough for the puzzle size. We recommend using a puzzle mat for its portability and to safeguard your progress.",
+        "text": "<strong> Simulator Setup: </strong> If you are using digital workspace e.g. jigsawpuzzles.io, choose a background color that contrasts well with your puzzle pieces for better visibility. I chose gray background, because my puzzle image as seen on the right is colorful and does not include darker colors. <br> <b>Physical Space Setup:</b> Ensure your workspace, such as a dining table, is large enough for the puzzle size. We recommend using a puzzle mat for its portability and to safeguard your progress.",
         "next": "3",
     }, 
     "3": {

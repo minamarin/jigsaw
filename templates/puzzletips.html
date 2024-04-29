@@ -2,7 +2,7 @@
 content %}
 <div id="step-content">
   <h2>{{ step.title }}</h2>
-  <p>{{ step.text }}</p>
+  <p>{{ step.text | safe }}</p>
   {% if step.media %}
   <div class="media-container">
     <img src="{{ step.media }}" alt="{{ step.title }}" />
