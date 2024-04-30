@@ -1,10 +1,17 @@
-{% extends 'base.html' %}
-
-{% block title %}Quiz Completion - Jigsaw Puzzle Guide{% endblock %}
-
-{% block content %}
-    <div id="quiz-completion">
-        <h2>Quiz Completed!</h2>
-        <p>You answered {{ correct_count }} questions correctly.</p>
-    </div>
+{% extends 'base.html' %} {% block title %}Quiz Completion - Jigsaw Puzzle
+Guide{% endblock %} {% block content %}
+<div id="quiz-completion">
+  <h2>
+    <img
+      src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png"
+      alt="Puzzle Piece"
+    />
+    Quiz Completed!
+    <img
+      src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png"
+      alt="Puzzle Piece"
+    />
+  </h2>
+  <p>You answered {{ correct_count }} questions correctly.</p>
+</div>
 {% endblock %}

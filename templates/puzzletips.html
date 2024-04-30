@@ -1,7 +1,17 @@
 {% extends 'base.html' %} {% block title %}Puzzle Tips{% endblock %} {% block
 content %}
 <div id="step-content">
-  <h2>{{ step.title }}</h2>
+  <h2>
+    <img
+      src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png"
+      alt="Puzzle Piece"
+    />
+    {{ step.title }}
+    <img
+      src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png"
+      alt="Puzzle Piece"
+    />
+  </h2>
   <p>{{ step.text | safe }}</p>
   {% if step.media %}
   <div class="media-container">

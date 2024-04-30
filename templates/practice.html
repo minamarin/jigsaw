@@ -1,15 +1,37 @@
-{% extends 'base.html' %}
-
-{% block title %}Practice - Jigsaw Puzzle Guide{% endblock %}
-
-{% block content %}
-    <div id="practice-content">
-        <h1>Practice Puzzle</h1>
-        <p>Click on start and choose Medium (16 pieces) difficulty. Complete the puzzle within 4 minutes. Time remaining: <span id="timer">04:00</span></p>
-        <button onclick="location.href='/quiz/1'" class="continue-button" id="goToQuiz">Go to Quiz</button>
-        <button onclick="location.reload()" class="continue-button" id="retry">Try Again</button>
-        <div style="height: 600px">
-            <iframe frameborder="0" style="border: 0; width: 100%; height: 100%" src="https://im-a-puzzle.com/share/55794569b3b9be3?embed=true&showAds=false&showNav=false&showSolve=false"></iframe>
-        </div>
-    </div>
+{% extends 'base.html' %} {% block title %}Practice - Jigsaw Puzzle Guide{%
+endblock %} {% block content %}
+<div id="practice-content">
+  <h1>
+    <img
+      src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png"
+      alt="Puzzle Piece"
+    />
+    Practice Puzzle
+    <img
+      src="https://cdn.pixabay.com/photo/2014/04/03/00/38/jigsaw-308909_1280.png"
+      alt="Puzzle Piece"
+    />
+  </h1>
+  <p>
+    Click on start and choose Medium (16 pieces) difficulty. Complete the puzzle
+    within 4 minutes. Time remaining: <span id="timer">04:00</span>
+  </p>
+  <button
+    onclick="location.href='/quiz/1'"
+    class="continue-button"
+    id="goToQuiz"
+  >
+    Go to Quiz
+  </button>
+  <button onclick="location.reload()" class="continue-button" id="retry">
+    Try Again
+  </button>
+  <div style="height: 600px">
+    <iframe
+      frameborder="0"
+      style="border: 0; width: 100%; height: 100%"
+      src="https://im-a-puzzle.com/share/55794569b3b9be3?embed=true&showAds=false&showNav=false&showSolve=false"
+    ></iframe>
+  </div>
+</div>
 {% endblock %}

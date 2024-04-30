@@ -85,6 +85,21 @@ main {
   height: 50px; /* Adjust the size as needed */
 }
 
+.step-content h2 img,
+h2 img {
+  height: 50px;
+}
+
+.practice-content h1 img,
+h1 img {
+  height: 50px;
+}
+
+.quiz-completion h2 img,
+h2 img {
+  height: 50px;
+}
+
 .start-btn,
 .continue-button,
 .submit-button {
