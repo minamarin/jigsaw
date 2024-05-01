@@ -12,6 +12,9 @@ Guide{% endblock %} {% block content %}
       alt="Puzzle Piece"
     />
   </h2>
-  <p>You answered {{ correct_count }} questions correctly.</p>
+  <div class="final-score">
+    Your Final Score: <span class="score">{{ correct_count }}/4</span>
+  </div> <br>
+  <p class="congratulations">You’re on the right track to become a puzzle master!</p>
 </div>
 {% endblock %}

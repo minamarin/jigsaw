@@ -13,21 +13,21 @@ steps = {
         "step_id": "1",
         "title": "Step #1: Choosing Difficulty", 
         "media":"https://i.ibb.co/d287rY6/step1.png", 
-        "text": "For those new to jigsaw puzzles, starting with a <strong> 250-500-piece puzzle </strong> is recommended. <br> If you have some familiarity or are seeking a greater challenge, consider trying a 1000-piece puzzle.",
+        "text": "For those new to jigsaw puzzles, starting with a <strong> 250-500-piece puzzle </strong> is recommended. <br> If you have some familiarity or are seeking a greater challenge, consider a 1000-piece puzzle.",
         "next": "2"
     },
     "2": {
         "step_id": "2",
         "title": "Step #2: Choosing Workspace", 
         "media":"https://i.ibb.co/5TqBNPp/step2.png", 
-        "text": "<strong> Simulator Setup: </strong> If you are using digital workspace e.g. jigsawpuzzles.io, choose a background color that contrasts well with your puzzle pieces for better visibility. I chose gray background, because my puzzle image as seen on the right is colorful and does not include darker colors. <br> <b>Physical Space Setup:</b> Ensure your workspace, such as a dining table, is large enough for the puzzle size. We recommend using a puzzle mat for its portability and to safeguard your progress.",
+        "text": "<strong> Simulator Setup: </strong> If you are using digital workspace e.g. jigsawpuzzles.io, choose a background color that contrasts well with your puzzle pieces for better visibility. <br><br> <b>Physical Space Setup:</b> Ensure your workspace, such as a dining table, is large enough for the puzzle size. We recommend using a puzzle mat for its portability and to safeguard your progress.",
         "next": "3",
     }, 
     "3": {
         "step_id": "3",
         "title": "Step #3: Flip all the pieces upwards", 
         "media":"https://i.ibb.co/wh0yFFX/step3.png", 
-        "text": "Jigsaw puzzle pieces come in varying shapes with “ins” and “outs.” Sometimes, it might seem like a perfect match, but they don't belong together. With practice, you'll improve at spotting these differences. Begin by flipping all pieces upwards to easily identify their shapes and colors.",
+        "text": "Begin by flipping all pieces upwards to easily identify their shapes and colors. <br> Jigsaw puzzle pieces come in varying shapes with “ins” and “outs.” <br> Sometimes it may seem like a perfect match, but they don't belong together. <br> With practice, you'll improve at spotting these differences.",
         "next": "4",
     }, 
     
@@ -35,7 +35,7 @@ steps = {
         "step_id": "4",
         "title": "Step #4: Finding Corner Pieces", 
         "media":"https://i.ibb.co/RDhxMXH/step4.gif", 
-        "text": "Corner pieces have two unique features: two “ins” and “outs”, and two straight edges. These pieces are your puzzle's foundation; start by finding all four corners. Position them according to the puzzle's final image for guidance.",
+        "text": "Corner pieces have a unique feature:  <b>two straight sides,</b> and two ins/outs. <br>They are your puzzle's foundation, start by finding all four corners. <br>Position them according to the puzzle's final image.",
         "next": "5",
     }, 
 
@@ -43,7 +43,7 @@ steps = {
         "step_id": "5",
         "title": "Step #5: Finding Edge Pieces", 
         "media":"https://i.ibb.co/jGpQntH/step5-edges.gif", 
-        "text": "After corner pieces, the next goal is to find all the edge pieces. Edge pieces have one “out” side and are crucial for framing your puzzle. Assembling the border gives a clear boundary and structure to work within. Use the puzzle's final image as a reference to align these pieces accurately.",
+        "text": "After corner pieces, the next goal is to find all the edge pieces. <br>Edge pieces have <b>one straight side</b> and are crucial for framing your puzzle. <br>Assembling the border gives a clear structure to work within. Use the puzzle's final image as a reference to align these pieces accurately.",
         "next": "6",
     }, 
 
@@ -51,7 +51,7 @@ steps = {
         "step_id": "6",
         "title": "Step #6: Sort by Colors & Special Pieces", 
         "media":"https://i.ibb.co/YkfKHPz/Screen-Recording-2024-04-09-at-20-49-53.gif", 
-        "text": "Begin sorting pieces by color to group similar sections together. Identify and separate special pieces that stand out due to unique colors, patterns, or text. These are often key to solving specific parts of the puzzle. Also, look out for 'whimsies' - pieces shaped unusually, like animals or objects, which can be placed more easily once their general location is determined.",
+        "text": "Begin sorting pieces by color to group similar sections together. <br>Identify and separate special pieces that stand out due to <b>unique colors, patterns, or text</b>. <br>Also, look out for 'whimsies' - pieces shaped unusually, like animals or objects, which can be placed more easily once their general location is determined.",
         "next": "7",
     }, 
     
@@ -59,7 +59,7 @@ steps = {
         "step_id": "7",
         "title": "Step #7: Completing the Puzzle", 
         "media":"https://i.ibb.co/MRHDqqB/Screen-Recording-2024-04-09-at-20-49-53-1.gif", 
-        "text": "Focus on completing small sections or specific images within the puzzle first, using your sorted groups. If you encounter difficulty with a particular area, switch to another section. This can prevent frustration and keep the process enjoyable. Some puzzles allow for sorting by shape—this can be particularly helpful for areas with uniform color. Remember: patience is key. Take breaks if needed, and don’t rush. Puzzling is a marathon, not a sprint.",
+        "text": "Focus on completing small sections or specific images within the puzzle first, using your sorted groups. If you encounter difficulty with a particular area, switch to another section. This can prevent frustration and keep the process enjoyable. <br>Some puzzles allow for sorting by shape—this can be particularly helpful for areas with uniform color. <b>Remember: patience is key.</b> Take breaks if needed, and don’t rush. <br>Puzzling is a marathon, not a sprint.",
         "next": "",
     } 
 }
@@ -158,6 +158,7 @@ def quiz_page(quiz_id):
 
 
 @app.route('/submit_quiz/<quiz_id>', methods=['POST'])
+@app.route('/submit_quiz/<quiz_id>', methods=['POST'])
 def submit_quiz(quiz_id):
     print("Quiz ID:", quiz_id)  # Debugging
     quiz_question = quiz.get(quiz_id)
@@ -178,16 +179,15 @@ def submit_quiz(quiz_id):
     print("Next Quiz ID:", next_quiz_id)  # Debugging
 
     if next_quiz_id:
-        return redirect(url_for('quiz_page', quiz_id=next_quiz_id))
+        return redirect(url_for('quiz_page', quiz_id=next_quiz_id, selected_choice=selected_choice, correct_answer=quiz_question['answer']))
     else:
-        return redirect(url_for('quiz_completion'))
+        return redirect(url_for('quiz_completion', selected_choice=selected_choice, correct_answer=quiz_question['answer']))
 
 
 @app.route('/quiz_completion')
 def quiz_completion():
     correct_count = session.pop('correct_count', 0)  # Retrieve and clear the count
     return render_template('quiz_completion.html', correct_count=correct_count)
-
 
 
 if __name__ == '__main__':

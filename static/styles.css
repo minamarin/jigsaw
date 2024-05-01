@@ -72,6 +72,11 @@ main {
   border-radius: 8px; /* Rounded corners for content */
 }
 
+.step-content {
+  max-width: 1000px; /* Limiting the width of the container */
+  margin: auto; /* Centering the container */
+}
+
 .content h1,
 #practice-content h1,
 #quiz-question h2,
@@ -174,4 +179,45 @@ iframe {
   max-height: 300px; /* Maximum height for media */
   display: block; /* Remove extra space below images */
   margin: auto; /* Center media in case they are not full width */
+}
+
+.final-score {
+  font-size: 32px; /* Larger font size for visibility */
+}
+
+.final-score .score {
+  font-weight: bold; /* Make the score number bold */
+  color: green; /* Make the score green */
+}
+
+.congratulations {
+  font-size: 24px; /* Slightly smaller font size than the score */
+  color: #333; /* Dark grey for contrast */
+  margin-top: 20px; /* Space between score and this text */
+}
+
+.timer-box {
+  padding: 4px 9px;
+  background-color: #f5f5dc; /* Light beige to match the page background for subtlety */
+  border: 2px solid #6a0dad; /* Purple border to match the theme */
+  color: #6a0dad; /* Purple text for aesthetic consistency */
+  font-weight: bold;
+  font-size: 1.2em;
+  display: inline-block; /* Ensures the box fits the content size */
+  margin: 20px 0; /* Adds space around the timer */
+  border-radius: 10px; /* Rounded corners for a softer look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.answer-feedback p {
+  font-size: 1em;
+  color: #333;
+}
+
+.answer-feedback .correct {
+  color: green;
+}
+
+.answer-feedback .incorrect {
+  color: red;
 }

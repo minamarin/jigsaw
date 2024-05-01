@@ -57,7 +57,14 @@ function startTimer(duration, display) {
     if (--timer < 0) {
       clearInterval(interval);
       display.textContent = 'Time is up!';
-      // You can add actions here such as disabling the puzzle or showing a modal when the time is up
+      timeUpWarning(); // Call the timeUpWarning function when time is up
     }
   }, 1000);
+}
+
+function timeUpWarning() {
+  // Create a modal or alert to inform the user
+  alert('Time is up! You will now be taken to the quiz.');
+  // Redirect to the quiz page
+  window.location.href = '/quiz/1'; // Adjust according to your routing setup
 }
